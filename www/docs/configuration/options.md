@@ -491,3 +491,8 @@ cookies: {
 :::warning
 Using a custom cookie policy may introduce security flaws into your application and is intended as an option for advanced users who understand the implications. Using this option is not recommended.
 :::
+
+### linkOAuthWithExistingUser
+
+- **Default value**: `false`
+- **Required**: _No_
