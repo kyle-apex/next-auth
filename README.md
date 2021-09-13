@@ -1,5 +1,6 @@
 <p align="center">
    <p>next-auth configured to allow auto-linking OAuth logins to existing users by setting the option linkOAuthWithExistingUser: true (Be careful as this is a security issue for sensitive apps).  Code from <a href="https://github.com/jgeurts/next-auth" target="_blank">https://github.com/jgeurts/next-auth</a></p>
+   <p>Alias next-auth in an existing package.json using "next-auth": "npm:auto-link-oauth-next-auth@^0.0.1",</p>
    <br/>
    <a href="https://next-auth.js.org" target="_blank"><img width="150px" src="https://next-auth.js.org/img/logo/logo-sm.png" /></a>
    <h3 align="center">NextAuth.js</h3>
