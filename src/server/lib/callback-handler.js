@@ -36,6 +36,7 @@ export default async function callbackHandler(
     jwt,
     events,
     session: { jwt: useJwtSession },
+    linkOAuthWithExistingUser
   } = options
 
   // If no adapter is configured then we don't have a database and cannot
@@ -209,7 +210,26 @@ export default async function callbackHandler(
         // We don't want to have two accounts with the same email address, and we don't
         // want to link them in case it's not safe to do so, so instead we prompt the user
         // to sign in via email to verify their identity and then link the accounts.
-        throw new AccountNotLinkedError()
+        //throw new AccountNotLinkedError()
+        if (linkOAuthWithExistingUser) {
+          await linkAccount(
+            userByEmail.id,
+            providerAccount.provider,
+            providerAccount.type,
+            providerAccount.id,
+            providerAccount.refreshToken,
+            providerAccount.accessToken,
+            providerAccount.accessTokenExpires
+          )
+          await dispatchEvent(events.linkAccount, { user: userByEmail, providerAccount })
+          session = useJwtSession ? {} : await createSession(userByEmail)
+          return {
+            session,
+            user: userByEmail,
+            isNewUser
+          }
+        } else
+          throw new AccountNotLinkedError()
       }
       // If the current user is not logged in and the profile isn't linked to any user
       // accounts (by email or provider account id)...
