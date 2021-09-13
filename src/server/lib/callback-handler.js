@@ -210,7 +210,7 @@ export default async function callbackHandler(
         // We don't want to have two accounts with the same email address, and we don't
         // want to link them in case it's not safe to do so, so instead we prompt the user
         // to sign in via email to verify their identity and then link the accounts.
-        //throw new AccountNotLinkedError()
+        // linkOAuth code from https://github.com/jgeurts/next-auth
         if (linkOAuthWithExistingUser) {
           await linkAccount(
             userByEmail.id,
