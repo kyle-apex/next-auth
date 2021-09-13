@@ -212,7 +212,8 @@ export interface NextAuthOptions {
    *
    * [Documentation](https://next-auth.js.org/configuration/options#cookies) | [Usage example](https://next-auth.js.org/configuration/options#example)
    */
-  cookies?: CookiesOptions
+  cookies?: CookiesOptions,
+  link0AuthWithExistingUser?: boolean
 }
 
 /**

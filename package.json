@@ -1,10 +1,13 @@
 {
-  "name": "next-auth",
-  "version": "0.0.0-semantically-released",
+  "name": "auto-link-oauth-next-auth",
+  "version": "0.0.1",
   "description": "Authentication for Next.js",
   "homepage": "https://next-auth.js.org",
-  "repository": "https://github.com/nextauthjs/next-auth.git",
-  "author": "Iain Collins <me@iaincollins.com>",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kyle-apex/next-auth.git#linkOAuthWithExistingUser"
+  },
+  "author": "Kyle",
   "main": "index.js",
   "types": "./index.d.ts",
   "keywords": [
@@ -43,7 +46,8 @@
     "prepublishOnly": "npm run build",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
-    "version:pr": "node ./config/version-pr"
+    "version:pr": "node ./config/version-pr",
+    "npm:publish": "npm publish -access public"
   },
   "files": [
     "dist",
@@ -203,5 +207,8 @@
       "type": "github",
       "url": "https://github.com/sponsors/balazsorban44"
     }
-  ]
+  ],
+  "bugs": {
+    "url": "https://github.com/kyle-apex/next-auth/issues"
+  }
 }
