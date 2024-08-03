@@ -35,6 +35,11 @@ async function NextAuthHandler(req, res, userOptions) {
     process.env._NEXTAUTH_DEBUG = true
   }
 
+  // Handle Outlook redirect issue
+  if(req.method === "HEAD") {
+    return res.status(200).end()
+  }
+
   // To the best of my knowledge, we need to return a promise here
   // to avoid early termination of calls to the serverless function
   // (and then return that promise when we are done) - eslint
